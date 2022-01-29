@@ -1,9 +1,17 @@
 package main
 
 import (
-	celeritas "github.com/zLeki/Celeritas"
+	"github.com/zLeki/Celeritas"
 )
 
-type application struct {
+type App struct {
 	App *celeritas.Celeritas
+}
+
+func main() {
+	c := initApplication()
+	err := c.App.ListenAndServe()
+	if err != nil {
+		return
+	}
 }
